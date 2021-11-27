@@ -24,11 +24,21 @@ export default function App() {
           name="Demo"
           component={Demo}
         />
-      <Stack.Screen
-        options={{ headerShown: false }}
-        name="JarConnect"
-        component={JarConnect}
-      />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Login"
+          component={LoginScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Dashboard"
+          component={Dashboard}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="JarConnect"
+          component={JarConnect}
+        />
         {/* <Stack.Screen
           options={{ headerShown: false }}
           name="Espcard"
@@ -50,11 +60,7 @@ export default function App() {
           name="Home"
           component={HomeScreen}
         />
-        {/* <Stack.Screen
-          options={{ headerShown: false }}
-          name="Dashboard"
-          component={Dashboard}
-        /> */}
+        {/* */}
         {/* <Stack.Screen
           // options={{ headerShown: false }}
           name="Smartconfig"
