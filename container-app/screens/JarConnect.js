@@ -30,10 +30,11 @@ const JarConnect = () => {
     console.log(wifiEnabled);
   };
   useEffect(() => {
-    if (id.length >= 6 || id.length == 0) setsvg(true);
-    else if (id.length > 5) {
+    if (id.length > 5) {
       setesp(true);
-    } else {
+      setsvg(true)
+    } else if (id.length >= 6 || id.length == 0) setsvg(true);
+    else {
       setsvg(false);
       setbtn(false);
     }
