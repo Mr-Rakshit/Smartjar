@@ -3,14 +3,25 @@ import { StyleSheet, Text, View } from "react-native";
 import { TextInput, Checkbox, Paragraph } from "react-native-paper";
 
 const Espcard = (props) => {
+  const [ssid, setssid] = useState();
   const [password, setpassword] = useState();
   const [checked, setchecked] = useState(false);
   return (
     <View style={{ marginTop: 100 }}>
-      <Paragraph style={{ fontFamily: "Lexend-SemiBold" }}>
+      <Paragraph style={{ }}>
         Network Detail
       </Paragraph>
-      <Text >SSID: {props.ssid}</Text>
+      <TextInput
+        label="Ssid"
+        selectionColor="black"
+        activeOutlineColor="black"
+        outlineColor="black"
+        activeUnderlineColor="black"
+        value={ssid}
+        onChangeText={(ssid) => {
+          setpassword(ssid), console.log;
+        }}
+      />
       <TextInput
         label="Password"
         selectionColor="black"

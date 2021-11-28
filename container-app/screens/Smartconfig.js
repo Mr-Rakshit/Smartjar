@@ -82,15 +82,17 @@ export default function App() {
     const wifiPass = '0965677826';
     // you can random bssid of wifi, but it need correct format
     const wifiBssid = '8a:29:9c:69:af:9b';
-
+1
     // timeout not work with android, on android default is 45s
     const TIME_OUT_SMART_CONFIG = 30 * 1000; // 30s
 
     function config() {
         setLog('configuring...');
-        foundDevice = false;
+        foundDevice = false
+        ;
 
-        SmartConfig.start(wifiName, wifiBssid, wifiPass, TIME_OUT_SMART_CONFIG, (event) => {
+        SmartConfig.start(
+          wifiName, wifiBssid, wifiPass, TIME_OUT_SMART_CONFIG, (event) => {
             console.log(event);
             let { eventName, data } = event;
             if (eventName === 'onFoundDevice') {
@@ -104,7 +106,8 @@ export default function App() {
                     setLog('Not found');
                 }
             }
-        });
+        }
+        );
     }
 
     function stopConfig() {

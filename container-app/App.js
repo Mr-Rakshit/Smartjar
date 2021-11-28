@@ -21,6 +21,11 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           // options={{ headerShown: false }}
+          name="Espcard"
+          component={Espcard}
+        />
+        <Stack.Screen
+          // options={{ headerShown: false }}
           name="Demo"
           component={Demo}
         />
