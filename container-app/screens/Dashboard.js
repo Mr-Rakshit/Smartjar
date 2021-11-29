@@ -35,7 +35,7 @@ const Dashboard = ({ navigation }) => {
     auth
       .signOut()
       .then(() => {
-        navigation1.replace("Login");
+        navigation.replace("Login");
       })
       .catch((error) => alert(error.message));
   };
@@ -68,7 +68,7 @@ const Dashboard = ({ navigation }) => {
       </BottomNavigation>  */}
       <View style={{ flexDirection: "row",flexWrap:"nowrap",justifyContent:"flex-end",alignItems:"center" }}>
         <TouchableOpacity
-          onPress={() => navigation1.push("JarConnect")}
+          onPress={() => navigation.push("JarConnect")}
           style={styles.button}
         >
           <Text style={styles.buttonText}>Add Jar</Text>

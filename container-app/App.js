@@ -21,24 +21,24 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           options={{ headerShown: false }}
-          name="JarConnect"
-          component={JarConnect}
-        />
-        <Stack.Screen
-          // options={{ headerShown: false }}
-          name="Espcard"
-          component={Espcard}
-        />
-        <Stack.Screen
-          options={{ headerShown: false }}
           name="Login"
           component={LoginScreen}
         />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="Dashboard"
+            component={Dashboard}
+          />
         <Stack.Screen
           options={{ headerShown: false }}
-          name="Dashboard"
-          component={Dashboard}
+          name="JarConnect"
+          component={JarConnect}
         />
+        {/* <Stack.Screen
+          // options={{ headerShown: false }}
+          name="Espcard"
+          component={Espcard}
+        /> */}
         {/* 
         <Stack.Screen
           options={{ headerShown: false }}

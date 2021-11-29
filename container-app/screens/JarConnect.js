@@ -6,7 +6,15 @@ import Appbar from "../components/Appbar";
 import Espcard from "../components/Espcard";
 import CardsConnect from "../components/CardsConnect";
 import Info from "../components/Info";
+// import firebase from "firebase/compat/app";
+// import "firebase/compat/auth";
+// import { auth } from "../firebase";
+// import "firebase/compat/firestore";
+import { myjson } from "../firebase";
 
+console.log("jar..............");
+console.log(myjson);
+var myjson2;
 const colors = {
   themeColor: "#ffffff",
   limegreen: "#f4ffe3",
@@ -14,8 +22,8 @@ const colors = {
   darkgreen: "#8eb44f",
   red: "#f54040",
 };
-
 const JarConnect = () => {
+  const [userid, setuserid] = useState("");
   const [id, setid] = useState("");
   const [btn, setbtn] = useState(true);
   const [esp, setesp] = useState(false);
@@ -32,7 +40,11 @@ const JarConnect = () => {
   useEffect(() => {
     if (id.length > 5) {
       setesp(true);
-      setsvg(true)
+      setsvg(true);
+      myjson2 = { ...myjson, ...{ contanierid: id } };
+      console.log("inside useef");
+      console.log("////////////////////");
+      console.log(myjson2);
     } else if (id.length >= 6 || id.length == 0) setsvg(true);
     else {
       setsvg(false);
@@ -46,9 +58,28 @@ const JarConnect = () => {
     }
     {
       console.log(id.length);
+      console.log(myjson);
     }
     return () => {};
   }, [id, btn]);
+  // useEffect(() => {
+  //   console.log('here')
+  //   if (!firebase.apps.length) {
+  //     firebase.initializeApp(firebaseConfig);
+  //     firebase.auth().onAuthStateChanged((user) => {
+  //       if (user) {
+  //         // User logged in already or has just logged in.
+  //         userid = user.uid;
+  //         console.log("he");
+  //         console.log(userid);
+  //       } else {
+  //         ("User has not signed in");
+  //       }
+  //     });
+  //     ref = firebase.firestore().collection("container");
+  //   }
+  //   return () => {};
+  // }, []);
 
   return (
     <View style={{ backgroundColor: colors.themeColor, flex: 1 }}>
@@ -73,7 +104,7 @@ const JarConnect = () => {
             />
           )}
 
-          {esp && <Espcard />}
+          {esp && <Espcard /> && console.log(myjson)}
         </View>
         <View style={{ flex: 1 }}></View>
         {/* <Button
