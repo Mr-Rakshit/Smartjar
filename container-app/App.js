@@ -8,7 +8,7 @@ import LoginScreen from "./screens/LoginScreen";
 import HomeScreen from "./screens/HomeScreen";
 import Dashboard from "./screens/Dashboard";
 import JarConnect from "./screens/JarConnect";
-import Demo from "./screens/Smartconfig";      //redundant 
+import Demo from "./screens/Smartconfig"; //redundant
 import Espcard from "./components/Espcard";
 import Jarques from "./components/Jarques";
 
@@ -21,14 +21,24 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           options={{ headerShown: false }}
+          name="Espcard"
+          component={Espcard}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
           name="Login"
           component={LoginScreen}
         />
-          <Stack.Screen
-            options={{ headerShown: false }}
-            name="Dashboard"
-            component={Dashboard}
-          />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Dashboard"
+          component={Dashboard}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Jarques"
+          component={Jarques}
+        />
         <Stack.Screen
           options={{ headerShown: false }}
           name="JarConnect"
@@ -46,11 +56,6 @@ export default function App() {
           component={LoginScreen}
         />
 
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="Jarques"
-          component={Jarques}
-        />
         <Stack.Screen
           options={{ headerShown: false }}
           name="Home"

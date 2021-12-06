@@ -23,6 +23,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import com.tuanpm.RCTSmartconfig.RCTSmartconfigPackage;
 
+import com.smartconfig.esptouch.ESPBridgePackage;
+
 public class MainApplication extends Application implements ReactApplication {
   private final ReactNativeHost mReactNativeHost = new ReactNativeHostWrapper(
     this,

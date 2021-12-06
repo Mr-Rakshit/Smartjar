@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { TextInput, Button } from "react-native-paper";
-import { ScreenContainer } from "react-native-screens";
 import Appbar from "../components/Appbar";
-import Espcard from "../components/Espcard";
 import CardsConnect from "../components/CardsConnect";
 import Info from "../components/Info";
-// import firebase from "firebase/compat/app";
-// import "firebase/compat/auth";
-// import { auth } from "../firebase";
-// import "firebase/compat/firestore";
+import Jarques from "../components/Jarques";
+import Espcard from "../components/Espcard";
 import { myjson } from "../firebase";
 
 console.log("jar..............");
@@ -28,25 +24,29 @@ const JarConnect = () => {
   const [btn, setbtn] = useState(true);
   const [esp, setesp] = useState(false);
   const [svg, setsvg] = useState(true);
-  const [wifiEnabled, setwifiEnable] = useState("false");
+  const [jarq, setjarq] = useState(false);
+  const [wifiEnabled, setwifiEnable] = useState(false);
   const changeState = () => {
-    if (wifiEnabled === "false") {
-      setwifiEnable("true");
+    if (wifiEnabled === false) {
+     // setsvg(false); //try
+      setwifiEnable(true);
       console.log("he");
     }
     console.log("yes");
     console.log(wifiEnabled);
   };
   useEffect(() => {
-    if (id.length > 5) {
-      setesp(true);
+    if (id.length >= 6) {
+      //setesp(true);
+      setjarq(true);
       setsvg(true);
       myjson2 = { ...myjson, ...{ contanierid: id } };
       console.log("inside useef");
       console.log("////////////////////");
       console.log(myjson2);
-    } else if (id.length >= 6 || id.length == 0) setsvg(true);
-    else {
+    } else if (id.length >= 6 || id.length == 0) {
+      setsvg(true);
+    } else {
       setsvg(false);
       setbtn(false);
     }
@@ -62,24 +62,6 @@ const JarConnect = () => {
     }
     return () => {};
   }, [id, btn]);
-  // useEffect(() => {
-  //   console.log('here')
-  //   if (!firebase.apps.length) {
-  //     firebase.initializeApp(firebaseConfig);
-  //     firebase.auth().onAuthStateChanged((user) => {
-  //       if (user) {
-  //         // User logged in already or has just logged in.
-  //         userid = user.uid;
-  //         console.log("he");
-  //         console.log(userid);
-  //       } else {
-  //         ("User has not signed in");
-  //       }
-  //     });
-  //     ref = firebase.firestore().collection("container");
-  //   }
-  //   return () => {};
-  // }, []);
 
   return (
     <View style={{ backgroundColor: colors.themeColor, flex: 1 }}>
@@ -91,8 +73,8 @@ const JarConnect = () => {
           )}
         </View>
         <View style={{ flex: 1 }}>
-          {wifiEnabled === "false" && <Info />}
-          {wifiEnabled === "true" && id.length < 6 && (
+          {wifiEnabled === false && <Info />}
+          {wifiEnabled === true && id.length < 6 && (
             <TextInput
               label="Jar"
               value={id}
@@ -102,9 +84,9 @@ const JarConnect = () => {
               activeUnderlineColor="black"
               onChangeText={(id) => setid(id)}
             />
+           // <Jarques />
           )}
-
-          {esp && <Espcard /> && console.log(myjson)}
+          {jarq && <Espcard />}
         </View>
         <View style={{ flex: 1 }}></View>
         {/* <Button
